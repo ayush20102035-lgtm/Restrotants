@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pizziano — Try a Bite of Delight | Premium Café, Fatehpur</title>
+<meta name="description" content="Pizziano — Fatehpur's most celebrated premium café & fast food destination. Garlic breads, sizzlers, burgers, artisan shakes. Civil Lines, UP."/>
+<meta property="og:title" content="Pizziano — Try a Bite of Delight"/>
+<meta property="og:description" content="Premium Café & Fast Food in Fatehpur, UP. Award-winning flavours from ₹1."/>
+<meta property="og:type" content="restaurant"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --fire:#FF6B35;--ember:#E8440F;--crimson:#C0392B;
+  --gold:#C9A96E;--gold-light:#E8D5A3;
+  --ink:#080808;--ink2:#0E0E0E;--ink3:#161616;--ink4:#1E1E1E;
+  --fog:rgba(255,255,255,0.055);--fog-b:rgba(255,255,255,0.07);
+  --text:#F0EDE8;--dim:rgba(240,237,232,0.52);
+  --gf:linear-gradient(135deg,#FF6B35 0%,#E8440F 50%,#C0392B 100%);
+  --gg:linear-gradient(135deg,#C9A96E 0%,#E8D5A3 50%,#C9A96E 100%);
+}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:'Outfit',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* CURSOR */
+.cd{position:fixed;width:8px;height:8px;background:#fff;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .3s,height .3s}
+.cr{position:fixed;width:44px;height:44px;border:1px solid rgba(201,169,110,.55);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .55s cubic-bezier(.23,1,.32,1)}
+.cr.h{width:68px;height:68px;border-color:var(--fire)}
+@media(pointer:coarse){.cd,.cr{display:none}body{cursor:auto}}
+
+/* LOADER */
+#loader{position:fixed;inset:0;z-index:10000;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s,visibility .8s}
+#loader.out{opacity:0;visibility:hidden;pointer-events:none}
+.lw{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3rem,8vw,5.5rem);letter-spacing:.15em;color:var(--text);display:flex;overflow:hidden}
+.lw span{display:inline-block;animation:cRise 1s cubic-bezier(.22,1,.36,1) both}
+.lw span:nth-child(1){animation-delay:.05s}.lw span:nth-child(2){animation-delay:.1s}.lw span:nth-child(3){animation-delay:.15s}.lw span:nth-child(4){animation-delay:.2s}.lw span:nth-child(5){animation-delay:.25s}.lw span:nth-child(6){animation-delay:.3s}.lw span:nth-child(7){animation-delay:.35s}.lw span:nth-child(8){animation-delay:.4s}
+@keyframes cRise{from{transform:translateY(110%);opacity:0}to{transform:none;opacity:1}}
+.lr{width:0;height:1px;background:var(--gold);margin:20px 0 18px;animation:rExp 1.2s .5s cubic-bezier(.22,1,.36,1) both}
+@keyframes rExp{to{width:160px}}
+.ls{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);opacity:0;animation:fIn .8s .9s both;font-weight:400}
+.lpb{position:absolute;bottom:0;left:0;right:0;height:2px;background:rgba(255,255,255,.04)}
+.lpf{height:100%;background:var(--gf);width:0;animation:lp 1.9s cubic-bezier(.4,0,.2,1) both}
+@keyframes lp{to{width:100%}}
+@keyframes fIn{to{opacity:1}}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:28px 6%;display:flex;align-items:center;justify-content:space-between;transition:padding .5s,background .5s,backdrop-filter .5s}
+#nav.pinned{padding:16px 6%;background:rgba(8,8,8,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--fog-b)}
+.nlogo{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.75rem;letter-spacing:.08em;color:var(--text);text-decoration:none}
+.nlogo em{font-style:italic;color:var(--gold)}
+.nlinks{display:flex;gap:40px;list-style:none}
+.nlinks a{font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .3s;position:relative}
+.nlinks a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .35s}
+.nlinks a:hover{color:var(--text)}.nlinks a:hover::after{width:100%}
+.nbtn{font-size:.65rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);background:var(--gg);padding:11px 26px;border-radius:2px;text-decoration:none;transition:transform .25s,box-shadow .25s;box-shadow:0 4px 20px rgba(201,169,110,.25)}
+.nbtn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,169,110,.45)}
+.nhb{display:none;flex-direction:column;gap:6px;background:none;border:none;cursor:pointer;padding:4px}
+.nhb span{width:24px;height:1px;background:var(--text);display:block;transition:all .35s;transform-origin:center}
+.nhb.x span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nhb.x span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nhb.x span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mob{position:fixed;inset:0;z-index:999;background:var(--ink2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;opacity:0;pointer-events:none;transition:opacity .45s}
+.mob.open{opacity:1;pointer-events:all}
+.mob a{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.2rem,7vw,4rem);letter-spacing:.06em;color:var(--text);text-decoration:none;transition:color .2s}
+.mob a:hover{color:var(--gold)}
+
+/* HERO */
+#hero{position:relative;height:100svh;min-height:640px;display:flex;align-items:flex-end;overflow:hidden}
+.hbg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=2000&q=90') center/cover no-repeat;transform:scale(1.1);animation:hzoom 12s ease forwards;will-change:transform}
+@keyframes hzoom{to{transform:scale(1)}}
+.hg{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,1) 0%,rgba(8,8,8,.5) 38%,rgba(8,8,8,.08) 100%),linear-gradient(to right,rgba(8,8,8,.55) 0%,transparent 60%)}
+.hn{position:absolute;inset:0;pointer-events:none;opacity:.3;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E")}
+.hc{position:relative;z-index:2;padding:0 7% 9vh;max-width:900px}
+.hey{display:inline-flex;align-items:center;gap:14px;font-size:.63rem;font-weight:500;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:26px;opacity:0;animation:sUp .9s .3s cubic-bezier(.22,1,.36,1) both}
+.hel{width:36px;height:1px;background:var(--gold);opacity:.6}
+.hh1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3.8rem,10vw,9.5rem);line-height:.92;letter-spacing:-.02em;margin-bottom:12px;opacity:0;animation:sUp .9s .45s cubic-bezier(.22,1,.36,1) both}
+.hh1 em{font-style:italic;color:var(--gold)}
+.hh1 strong{font-weight:700;display:block;background:var(--gf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.htag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.1rem,2.5vw,1.6rem);font-weight:300;color:rgba(240,237,232,.62);margin-bottom:52px;letter-spacing:.02em;opacity:0;animation:sUp .9s .6s cubic-bezier(.22,1,.36,1) both}
+.ha{display:flex;align-items:center;gap:18px;flex-wrap:wrap;opacity:0;animation:sUp .9s .75s cubic-bezier(.22,1,.36,1) both}
+.bgo{display:inline-flex;align-items:center;gap:11px;background:var(--gg);color:var(--ink);font-weight:700;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;padding:17px 38px;border-radius:2px;text-decoration:none;transition:transform .28s,box-shadow .28s;box-shadow:0 6px 28px rgba(201,169,110,.3)}
+.bgo:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(201,169,110,.5)}
+.bgh{display:inline-flex;align-items:center;gap:11px;color:var(--text);font-size:.7rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;padding:17px 28px;border:1px solid rgba(255,255,255,.16);border-radius:2px;transition:all .28s;background:rgba(255,255,255,.04);backdrop-filter:blur(8px)}
+.bgh:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,169,110,.06)}
+.hmeta{position:absolute;right:6%;bottom:9vh;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:18px;opacity:0;animation:fIn .9s 1s both}
+.hmn{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:2.2rem;line-height:1;color:var(--gold);letter-spacing:-.02em;text-align:right}
+.hml{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-top:3px;text-align:right}
+.hmdiv{width:1px;height:44px;background:rgba(255,255,255,.1);align-self:flex-end}
+.scue{position:absolute;left:50%;bottom:32px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fIn .8s 1.2s both}
+.scue span{font-size:.57rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+.sline{width:1px;height:50px;background:linear-gradient(to bottom,rgba(201,169,110,.8),transparent);animation:sp 2s ease-in-out infinite}
+@keyframes sp{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes sUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+
+/* TICKER */
+.ticker{background:var(--gf);padding:14px 0;overflow:hidden;position:relative;z-index:3}
+.ttrack{display:flex;width:max-content;animation:tscroll 22s linear infinite}
+.titem{display:inline-flex;align-items:center;gap:20px;font-size:.63rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:#fff;padding:0 30px;white-space:nowrap}
+.tdot{width:4px;height:4px;background:rgba(255,255,255,.45);border-radius:50%}
+@keyframes tscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SHARED */
+.sec{padding:130px 7%}
+.si{max-width:1280px;margin:0 auto}
+.ey{display:inline-flex;align-items:center;gap:12px;font-size:.6rem;font-weight:500;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.ey::before{content:'';width:26px;height:1px;background:var(--gold);opacity:.5}
+.sh2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.6rem,5.5vw,5rem);line-height:.95;letter-spacing:-.03em;color:var(--text)}
+.sh2 em{font-style:italic;color:var(--gold)}.sh2 strong{font-weight:700}
+.sbody{color:var(--dim);font-size:1rem;line-height:1.78;max-width:480px;margin-top:18px;font-weight:300}
+[data-r]{opacity:0;transform:translateY(38px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+[data-r].on{opacity:1;transform:none}
+[data-r][data-d="1"]{transition-delay:.12s}[data-r][data-d="2"]{transition-delay:.22s}[data-r][data-d="3"]{transition-delay:.32s}[data-r][data-d="4"]{transition-delay:.44s}
+
+/* ABOUT */
+#about{background:var(--ink2);position:relative;overflow:hidden}
+.agl{position:absolute;top:-150px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,53,.07) 0%,transparent 65%);pointer-events:none}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+.avis{position:relative}
+.aframe{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:3/4}
+.aframe::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,8,8,.65) 0%,transparent 50%)}
+.aframe img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 7s ease}
+.aframe:hover img{transform:scale(1.04)}
+.acorn{position:absolute;width:56px;height:56px;border-color:var(--gold);border-style:solid;opacity:.45}
+.acorn.tl{top:-10px;left:-10px;border-width:1px 0 0 1px}
+.acorn.br{bottom:-10px;right:-10px;border-width:0 1px 1px 0}
+.apill{position:absolute;bottom:32px;left:-32px;z-index:2;background:rgba(8,8,8,.92);backdrop-filter:blur(20px);border:1px solid var(--fog-b);border-radius:100px;padding:15px 22px;display:flex;align-items:center;gap:14px}
+.apn{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.7rem;background:var(--gf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.apl{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);line-height:1.5}
+.ayb{position:absolute;top:26px;right:-22px;z-index:2;width:82px;height:82px;border-radius:50%;background:var(--gg);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(201,169,110,.3)}
+.ayb span:first-child{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.35rem;color:var(--ink);line-height:1}
+.ayb span:last-child{font-size:.48rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(8,8,8,.55)}
+.acopy{padding-left:8px}
+.apillars{display:flex;flex-direction:column;gap:0;margin-top:42px}
+.pillar{display:flex;align-items:flex-start;gap:20px;padding:22px 0;border-bottom:1px solid var(--fog-b);transition:padding .3s}
+.pillar:hover{padding-left:8px}
+.pnum{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:.73rem;color:var(--gold);letter-spacing:.1em;margin-top:3px;min-width:26px}
+.ptitle{font-weight:600;font-size:.87rem;letter-spacing:.04em;margin-bottom:5px}
+.pdesc{font-size:.8rem;color:var(--dim);line-height:1.65;font-weight:300}
+
+/* MENU */
+#menu{background:var(--ink);position:relative}
+.mbgt{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(10rem,22vw,22rem);color:rgba(255,255,255,.016);letter-spacing:-.05em;pointer-events:none;user-select:none;white-space:nowrap}
+.mhead{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:60px;flex-wrap:wrap;gap:28px}
+.tabs{display:flex;background:var(--fog);border:1px solid var(--fog-b);border-radius:3px;padding:4px}
+.tb{font-size:.63rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);padding:10px 18px;border-radius:2px;background:none;border:none;cursor:pointer;transition:all .3s;white-space:nowrap}
+.tb.on{background:var(--gf);color:#fff}
+.tb:hover:not(.on){color:var(--text)}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px}
+.dc{position:relative;overflow:hidden;background:var(--ink3);cursor:pointer}
+.dci{height:238px;overflow:hidden;position:relative}
+.dci img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.22,1,.36,1);display:block}
+.dc:hover .dci img{transform:scale(1.08)}
+.dcio{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,22,22,.95) 0%,rgba(22,22,22,.18) 50%,transparent 100%)}
+.dcc{position:absolute;top:14px;left:14px;font-size:.53rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:5px 11px;border-radius:1px}
+.cf{background:var(--gf);color:#fff}.cg{background:var(--gg);color:var(--ink)}
+.dcb{padding:20px 22px 24px}
+.dcn{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.28rem;letter-spacing:.01em;margin-bottom:6px;line-height:1.2}
+.dcd{font-size:.77rem;color:var(--dim);line-height:1.6;font-weight:300;margin-bottom:16px}
+.dcf{display:flex;align-items:center;justify-content:space-between}
+.dp{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.45rem;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.02em}
+.do{display:inline-flex;align-items:center;gap:7px;font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);text-decoration:none;border-bottom:1px solid var(--fog-b);padding-bottom:2px;transition:color .25s,border-color .25s}
+.do:hover{color:var(--gold);border-color:var(--gold)}
+.dhb{position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gf);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.dc:hover .dhb{transform:scaleX(1)}
+
+/* FEATURE BANNER */
+.fbanner{position:relative;height:68vh;min-height:460px;overflow:hidden;display:flex;align-items:center}
+.fbbg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=2000&q=85') center/cover no-repeat}
+.fbg{position:absolute;inset:0;background:linear-gradient(to right,rgba(8,8,8,.92) 0%,rgba(8,8,8,.55) 50%,rgba(8,8,8,.1) 100%)}
+.fbc{position:relative;z-index:2;padding:0 8%;max-width:680px}
+.fbc .sh2{font-size:clamp(2.4rem,5vw,4.5rem)}
+.kpis{display:flex;gap:44px;margin-top:40px;flex-wrap:wrap}
+.kpi{border-left:1px solid var(--gold);padding-left:20px;opacity:.75}
+.kpin{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:2.3rem;line-height:1;color:var(--gold);letter-spacing:-.03em}
+.kpil{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-top:5px}
+
+/* GALLERY */
+#gallery{background:var(--ink2)}
+.gg{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:auto;gap:6px;margin-top:56px}
+.gi{overflow:hidden;position:relative;cursor:pointer;background:var(--ink3)}
+.gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.gi:hover img{transform:scale(1.07)}
+.gi:nth-child(1){grid-column:1/6;grid-row:1/3;height:520px}
+.gi:nth-child(2){grid-column:6/9;grid-row:1}
+.gi:nth-child(3){grid-column:9/13;grid-row:1}
+.gi:nth-child(4){grid-column:6/9;grid-row:2}
+.gi:nth-child(5){grid-column:9/13;grid-row:2}
+.gi:nth-child(6){grid-column:1/5;grid-row:3}
+.gi:nth-child(7){grid-column:5/9;grid-row:3}
+.gi:nth-child(8){grid-column:9/13;grid-row:3}
+.gov{position:absolute;inset:0;background:rgba(8,8,8,0);display:flex;align-items:center;justify-content:center;transition:background .35s}
+.gov svg{opacity:0;transform:scale(.6);transition:opacity .35s,transform .35s}
+.gi:hover .gov{background:rgba(8,8,8,.45)}
+.gi:hover .gov svg{opacity:1;transform:scale(1)}
+#lb{position:fixed;inset:0;z-index:9500;background:rgba(0,0,0,.96);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center}
+#lb.open{display:flex}
+#lb img{max-width:90vw;max-height:88vh;object-fit:contain;border-radius:2px}
+#lbc{position:absolute;top:28px;right:32px;background:none;border:none;color:rgba(255,255,255,.45);font-size:1.5rem;cursor:pointer;transition:color .2s;font-family:'Outfit',sans-serif;font-weight:200;letter-spacing:.1em}
+#lbc:hover{color:#fff}
+
+/* REVIEWS */
+#reviews{background:var(--ink);overflow:hidden}
+.rl{display:grid;grid-template-columns:340px 1fr;gap:80px;align-items:start}
+.rs{position:sticky;top:120px}
+.rg{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:7.5rem;line-height:1;letter-spacing:-.05em;background:var(--gf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.rsr{display:flex;gap:5px;margin:10px 0}
+.star{width:16px;height:16px;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);background:var(--gold)}
+.star.h{background:linear-gradient(90deg,var(--gold) 50%,rgba(255,255,255,.1) 50%)}
+.rtot{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);margin-bottom:28px}
+.rbw{display:flex;flex-direction:column;gap:9px;margin-top:22px}
+.rbr{display:flex;align-items:center;gap:11px}
+.rbn{font-size:.7rem;color:var(--dim);width:10px;text-align:right}
+.rbt{flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+.rbf{height:100%;background:var(--gf);border-radius:99px}
+.rbp{font-size:.63rem;color:var(--dim);width:28px;text-align:right}
+.rcs{display:flex;flex-direction:column;gap:2px}
+.rc{background:var(--ink3);padding:32px 34px;border-left:2px solid transparent;transition:border-color .3s,background .3s}
+.rc:hover{border-left-color:var(--fire);background:var(--ink4)}
+.rq{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.16rem;font-weight:300;line-height:1.72;color:rgba(240,237,232,.82);margin-bottom:22px}
+.rq::before{content:'\201C';color:var(--gold);font-size:1.8rem;line-height:0;vertical-align:-.3em;margin-right:4px}
+.rme{display:flex;align-items:center;justify-content:space-between}
+.rau{display:flex;align-items:center;gap:13px}
+.rav{width:42px;height:42px;border-radius:50%;background:var(--gf);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.1rem;color:#fff;flex-shrink:0}
+.ran{font-weight:600;font-size:.86rem;letter-spacing:.03em}
+.rad{font-size:.67rem;color:var(--dim);margin-top:2px}
+.rss{display:flex;gap:3px}
+.rss .star{width:11px;height:11px}
+
+/* ORDER */
+#order{position:relative;overflow:hidden;background:var(--ink2);padding:160px 7%}
+.obg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1800&q=80') center/cover no-repeat;opacity:.07}
+.oi{position:relative;z-index:1;max-width:880px;margin:0 auto;text-align:center}
+.oh2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3rem,7vw,6.5rem);line-height:.92;letter-spacing:-.04em;margin-bottom:22px}
+.oh2 em{font-style:italic;color:var(--gold)}
+.osub{font-size:.98rem;color:var(--dim);font-weight:300;line-height:1.75;max-width:440px;margin:0 auto 52px}
+.oduo{display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:700px;margin:0 auto}
+.oc{background:var(--ink3);padding:46px 34px;display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;color:var(--text);position:relative;overflow:hidden;transition:background .3s}
+.oc::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .4s}
+.oc.wa::before{background:linear-gradient(135deg,rgba(37,211,102,.14),rgba(37,211,102,.04))}
+.oc.ph::before{background:linear-gradient(135deg,rgba(255,107,53,.14),rgba(255,107,53,.04))}
+.oc:hover::before{opacity:1}
+.oc>*{position:relative;z-index:1}
+.oico{font-size:2.5rem;margin-bottom:4px}
+.oct{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.55rem;letter-spacing:.01em}
+.ocn{font-size:.8rem;color:var(--dim);font-weight:300}
+.octa{margin-top:14px;font-size:.63rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(201,169,110,.28);padding-bottom:3px;transition:border-color .2s}
+.oc:hover .octa{border-color:var(--gold)}
+
+/* LOCATION */
+#location{background:var(--ink3)}
+.locg{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;padding-top:60px}
+.loci{display:flex;flex-direction:column;gap:2px}
+.loit{display:flex;gap:18px;align-items:flex-start;padding:22px 0;border-bottom:1px solid var(--fog-b)}
+.loic{width:34px;height:34px;min-width:34px;background:rgba(201,169,110,.07);border:1px solid rgba(201,169,110,.14);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:.88rem;margin-top:2px}
+.loil{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.loiv{font-size:.9rem;color:rgba(240,237,232,.78);line-height:1.65;font-weight:300}
+.loiv a{color:inherit;text-decoration:none;transition:color .2s}
+.loiv a:hover{color:var(--gold)}
+.mapc{border-radius:3px;overflow:hidden;border:1px solid var(--fog-b);aspect-ratio:4/3;position:relative}
+.mapc::before{content:'';position:absolute;inset:0;z-index:1;box-shadow:inset 0 0 0 1px rgba(201,169,110,.1);border-radius:3px;pointer-events:none}
+.mapc iframe{width:100%;height:100%;border:none;display:block;filter:grayscale(.8) invert(.85) contrast(.9) brightness(.85) sepia(.2)}
+
+/* FOOTER */
+footer{background:var(--ink);border-top:1px solid var(--fog-b);padding:80px 7% 38px}
+.fg{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;padding-bottom:60px;border-bottom:1px solid var(--fog-b)}
+.fbn{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2.3rem;letter-spacing:.06em;color:var(--text)}
+.fbn em{font-style:italic;color:var(--gold)}
+.frule{width:44px;height:1px;background:var(--gold);opacity:.4;margin:15px 0}
+.fdesc{font-size:.8rem;color:var(--dim);line-height:1.75;max-width:255px;font-weight:300}
+.fsocs{display:flex;gap:10px;margin-top:26px}
+.fs{width:36px;height:36px;border:1px solid var(--fog-b);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:var(--dim);text-decoration:none;transition:all .25s}
+.fs:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+.fc h4{font-size:.6rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.fc a{font-size:.8rem;color:var(--dim);text-decoration:none;transition:color .2s;font-weight:300}
+.fc a:hover{color:var(--text)}
+.fb{max-width:1280px;margin:28px auto 0;display:flex;align-items:center;justify-content:space-between;font-size:.67rem;color:var(--dim);letter-spacing:.05em}
+.fbi{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:.78rem}
+
+/* FLOATS */
+.fwa{position:fixed;bottom:88px;right:26px;z-index:800;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;font-size:1.4rem;text-decoration:none;box-shadow:0 6px 26px rgba(37,211,102,.35);transition:transform .25s,box-shadow .25s}
+.fwa:hover{transform:scale(1.1);box-shadow:0 10px 34px rgba(37,211,102,.55)}
+.fwa::after{content:'Order Now';position:absolute;right:60px;top:50%;transform:translateY(-50%);background:rgba(8,8,8,.9);backdrop-filter:blur(10px);color:var(--text);font-size:.6rem;font-weight:500;letter-spacing:.15em;white-space:nowrap;padding:7px 13px;border-radius:2px;border:1px solid var(--fog-b);opacity:0;pointer-events:none;transition:opacity .25s}
+.fwa:hover::after{opacity:1}
+#btt{position:fixed;bottom:26px;right:26px;z-index:800;width:44px;height:44px;border-radius:2px;background:var(--ink4);border:1px solid var(--fog-b);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--gold);font-size:1rem;opacity:0;transform:translateY(10px);transition:opacity .35s,transform .35s,background .25s,border-color .25s}
+#btt.show{opacity:1;transform:none}
+#btt:hover{background:var(--ink3);border-color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.agrid{grid-template-columns:1fr;gap:60px}.avis{max-width:480px}.rl{grid-template-columns:1fr}.rs{position:static}.fg{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.sec{padding:88px 6%}#nav{padding:18px 5%}.nlinks,.nbtn{display:none}.nhb{display:flex}.hc{padding:0 6% 14vh}.hmeta{display:none}.gg{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gi{grid-column:auto!important;grid-row:auto!important;height:190px!important}.locg{grid-template-columns:1fr}.fg{grid-template-columns:1fr}.oduo{grid-template-columns:1fr}.kpis{gap:24px}.tabs{flex-wrap:wrap}.fb{flex-direction:column;gap:10px;text-align:center}}
+@media(max-width:480px){.hh1{font-size:clamp(3rem,13vw,5rem)}.apill{left:0}.ayb{right:0}}
+</style>
+</head>
+<body>
+
+<div class="cd" id="cd"></div>
+<div class="cr" id="cr"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="lw"><span>P</span><span>i</span><span>z</span><span>z</span><span>i</span><span>a</span><span>n</span><span>o</span></div>
+  <div class="lr"></div>
+  <div class="ls">Premium Café &amp; Fast Food</div>
+  <div class="lpb"><div class="lpf"></div></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nlogo">Pizzia<em>no</em></a>
+  <ul class="nlinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#location">Visit</a></li>
+  </ul>
+  <a href="https://wa.me/917399999032?text=Hi! I'd like to place an order at Pizziano" target="_blank" class="nbtn">Reserve a Table</a>
+  <button class="nhb" id="nhb" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="mob" id="mob">
+  <a href="#about" class="dd">About</a>
+  <a href="#menu" class="dd">Menu</a>
+  <a href="#gallery" class="dd">Gallery</a>
+  <a href="#reviews" class="dd">Reviews</a>
+  <a href="#location" class="dd">Visit Us</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hbg"></div>
+  <div class="hg"></div>
+  <div class="hn"></div>
+  <div class="hc">
+    <div class="hey"><span class="hel"></span>Civil Lines · Fatehpur · UP</div>
+    <h1 class="hh1"><em>A taste of</em><strong>Delight</strong></h1>
+    <p class="htag">Crafted with passion. Served with pride.</p>
+    <div class="ha">
+      <a href="#menu" class="bgo">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+        Explore Menu
+      </a>
+      <a href="https://wa.me/917399999032?text=Hi! I'd like to place an order" target="_blank" class="bgh">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        Order on WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="hmeta">
+    <div><div class="hmn">3.8★</div><div class="hml">Google Rating</div></div>
+    <div class="hmdiv"></div>
+    <div><div class="hmn">497</div><div class="hml">Reviews</div></div>
+    <div class="hmdiv"></div>
+    <div><div class="hmn">₹200</div><div class="hml">Max Per Head</div></div>
+  </div>
+  <div class="scue"><div class="sline"></div><span>Scroll</span></div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ttrack">
+    <div class="titem"><span class="tdot"></span>Garlic Breads</div><div class="titem"><span class="tdot"></span>Sizzling Sizzlers</div><div class="titem"><span class="tdot"></span>Gourmet Burgers</div><div class="titem"><span class="tdot"></span>Artisan Sandwiches</div><div class="titem"><span class="tdot"></span>Premium Shakes</div><div class="titem"><span class="tdot"></span>Cold Coffee</div><div class="titem"><span class="tdot"></span>Fruit Beers</div><div class="titem"><span class="tdot"></span>Lemon Ice Tea</div><div class="titem"><span class="tdot"></span>Civil Lines · Fatehpur</div><div class="titem"><span class="tdot"></span>Open Daily 10AM–10PM</div>
+    <div class="titem"><span class="tdot"></span>Garlic Breads</div><div class="titem"><span class="tdot"></span>Sizzling Sizzlers</div><div class="titem"><span class="tdot"></span>Gourmet Burgers</div><div class="titem"><span class="tdot"></span>Artisan Sandwiches</div><div class="titem"><span class="tdot"></span>Premium Shakes</div><div class="titem"><span class="tdot"></span>Cold Coffee</div><div class="titem"><span class="tdot"></span>Fruit Beers</div><div class="titem"><span class="tdot"></span>Lemon Ice Tea</div><div class="titem"><span class="tdot"></span>Civil Lines · Fatehpur</div><div class="titem"><span class="tdot"></span>Open Daily 10AM–10PM</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="sec">
+  <div class="si">
+    <div class="agl"></div>
+    <div class="agrid">
+      <div class="avis" data-r>
+        <div class="acorn tl"></div><div class="acorn br"></div>
+        <div class="aframe"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=85" alt="Pizziano interior" loading="lazy"/></div>
+        <div class="apill"><div class="apn">₹1</div><div class="apl">Starting<br>From</div></div>
+        <div class="ayb"><span>2024</span><span>Est.</span></div>
+      </div>
+      <div class="acopy">
+        <div class="ey" data-r>Our Story</div>
+        <h2 class="sh2" data-r data-d="1">Where Every <em>Bite</em><br>Becomes a <strong>Memory</strong></h2>
+        <p class="sbody" data-r data-d="2">Nestled in the heart of Civil Lines, Fatehpur, Pizziano is more than a café — it's a sanctuary for food lovers. We believe premium dining shouldn't cost a fortune. Every dish is crafted with love, fresh ingredients, and relentless attention to flavour.</p>
+        <div class="apillars" data-r data-d="3">
+          <div class="pillar"><span class="pnum">01</span><div><div class="ptitle">Seasonal Fresh Ingredients</div><div class="pdesc">Every dish starts with the finest, freshest produce sourced locally.</div></div></div>
+          <div class="pillar"><span class="pnum">02</span><div><div class="ptitle">Crafted with Intention</div><div class="pdesc">Each recipe is perfected over time — not rushed, never compromised.</div></div></div>
+          <div class="pillar"><span class="pnum">03</span><div><div class="ptitle">Accessible Luxury</div><div class="pdesc">Fine flavours at everyday prices. Premium dining, starting from ₹1.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="sec" style="padding-top:100px">
+  <div class="si">
+    <div class="mbgt">MENU</div>
+    <div class="mhead">
+      <div>
+        <div class="ey" data-r>What We Serve</div>
+        <h2 class="sh2" data-r data-d="1">The <em>Art</em> of<br><strong>Good Food</strong></h2>
+      </div>
+      <div class="tabs" data-r data-d="2">
+        <button class="tb on" data-cat="garlic">Garlic Breads</button>
+        <button class="tb" data-cat="burger">Burgers</button>
+        <button class="tb" data-cat="sandwich">Sandwiches</button>
+        <button class="tb" data-cat="sizzler">Sizzlers</button>
+        <button class="tb" data-cat="drinks">Drinks</button>
+      </div>
+    </div>
+    <div class="mgrid" id="mgrid">
+      <!-- GARLIC -->
+      <div class="dc" data-cat="garlic" data-r><div class="dci"><img src="https://images.unsplash.com/photo-1619740455993-9d622d93f64a?w=600&q=80" alt="Cheese Garlic Bread" loading="lazy"/><div class="dcio"></div><span class="dcc cg">Bestseller</span></div><div class="dcb"><div class="dcn">Cheese Garlic Bread</div><div class="dcd">Golden-baked with molten cheese and roasted garlic butter.</div><div class="dcf"><span class="dp">₹100</span><a href="https://wa.me/917399999032?text=Cheese Garlic Bread!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <div class="dc" data-cat="garlic" data-r data-d="1"><div class="dci"><img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=600&q=80" alt="Exotic Garlic Bread" loading="lazy"/><div class="dcio"></div></div><div class="dcb"><div class="dcn">Exotic Garlic Bread</div><div class="dcd">Loaded with seasonal exotic vegetables, herbs and garlic butter.</div><div class="dcf"><span class="dp">₹130</span><a href="https://wa.me/917399999032?text=Exotic Garlic Bread!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <div class="dc" data-cat="garlic" data-r data-d="2"><div class="dci"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80" alt="Spicy Garlic Bread" loading="lazy"/><div class="dcio"></div><span class="dcc cf">🌶 Spicy</span></div><div class="dcb"><div class="dcn">Spicy Garlic Bread</div><div class="dcd">A bold fiery kick of house spice blend on crispy garlic-buttered toast.</div><div class="dcf"><span class="dp">₹140</span><a href="https://wa.me/917399999032?text=Spicy Garlic Bread!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <div class="dc" data-cat="garlic" data-r data-d="3"><div class="dci"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&q=80" alt="Creamy Corn Garlic Bread" loading="lazy"/><div class="dcio"></div></div><div class="dcb"><div class="dcn">Creamy Corn Garlic Bread</div><div class="dcd">Sweet corn in velvety cream sauce atop garlicky toast. Pure indulgence.</div><div class="dcf"><span class="dp">₹140</span><a href="https://wa.me/917399999032?text=Creamy Corn Garlic Bread!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <!-- BURGERS -->
+      <div class="dc" data-cat="burger" style="display:none" data-r><div class="dci"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt="Aloo Tikki Burger" loading="lazy"/><div class="dcio"></div><span class="dcc cg">Popular</span></div><div class="dcb"><div class="dcn">Aloo Tikki Burger</div><div class="dcd">Classic spiced potato tikki, crisp lettuce, fresh tomato in a pillowy bun.</div><div class="dcf"><span class="dp">₹50</span><a href="https://wa.me/917399999032?text=Aloo Tikki Burger!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <div class="dc" data-cat="burger" style="display:none" data-r data-d="1"><div class="dci"><img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=600&q=80" alt="Supreme Tikki Burger" loading="lazy"/><div class="dcio"></div></div><div class="dcb"><div class="dcn">Supreme Tikki Burger</div><div class="dcd">Upgraded tikki with house sauce, caramelised onions and crispy toppings.</div><div class="dcf"><span class="dp">₹60</span><a href="https://wa.me/917399999032?text=Supreme Tikki Burger!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <div class="dc" data-cat="burger" style="display:none" data-r data-d="2"><div class="dci"><img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?w=600&q=80" alt="Liquid Cheese Burger" loading="lazy"/><div class="dcio"></div><span class="dcc cf">🧀 Cheesy</span></div><div class="dcb"><div class="dcn">Liquid Cheese Burger</div><div class="dcd">Molten cheese floods every bite of this drool-worthy masterpiece.</div><div class="dcf"><span class="dp">₹80</span><a href="https://wa.me/917399999032?text=Liquid Cheese Burger!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <div class="dc" data-cat="burger" style="display:none" data-r data-d="3"><div class="dci"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&q=80" alt="Cheese Garlic Burger" loading="lazy"/><div class="dcio"></div></div><div class="dcb"><div class="dcn">Cheese Garlic Burger</div><div class="dcd">Garlic-infused patty drenched in rich, melted cheese sauce.</div><div class="dcf"><span class="dp">₹90</span><a href="https://wa.me/917399999032?text=Cheese Garlic Burger!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <!-- SANDWICHES -->
+      <div class="dc" data-cat="sandwich" style="display:none" data-r><div class="dci"><img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600&q=80" alt="Cold Veg Sandwich" loading="lazy"/><div class="dcio"></div></div><div class="dcb"><div class="dcn">Cold Veg Sandwich</div><div class="dcd">Fresh vegetables, tangy condiments layered in soft artisan bread.</div><div class="dcf"><span class="dp">₹60</span><a href="https://wa.me/917399999032?text=Cold Veg Sandwich!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <div class="dc" data-cat="sandwich" style="display:none" data-r data-d="1"><div class="dci"><img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600&q=80" alt="Grilled Veg Delight" loading="lazy"/><div class="dcio"></div><span class="dcc cg">Popular</span></div><div class="dcb"><div class="dcn">Grilled Veg Delight</div><div class="dcd">Perfectly pressed and grilled, bursting with seasoned garden vegetables.</div><div class="dcf"><span class="dp">₹70</span><a href="https://wa.me/917399999032?text=Grilled Veg Delight!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <div class="dc" data-cat="sandwich" style="display:none" data-r data-d="2"><div class="dci"><img src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?w=600&q=80" alt="Grilled Creamy Corn" loading="lazy"/><div class="dcio"></div></div><div class="dcb"><div class="dcn">Grilled Creamy Corn</div><div class="dcd">Grilled to golden perfection with a creamy corn filling and spice blend.</div><div class="dcf"><span class="dp">₹80</span><a href="https://wa.me/917399999032?text=Grilled Creamy Corn!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <div class="dc" data-cat="sandwich" style="display:none" data-r data-d="3"><div class="dci"><img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?w=600&q=80" alt="Grilled Paneer Tikka" loading="lazy"/><div class="dcio"></div><span class="dcc cg">Chef's Pick</span></div><div class="dcb"><div class="dcn">Grilled Paneer Tikka</div><div class="dcd">Smoky tikka-spiced paneer, crispy grilled bread, house mint chutney.</div><div class="dcf"><span class="dp">₹90</span><a href="https://wa.me/917399999032?text=Grilled Paneer Tikka!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <!-- SIZZLERS -->
+      <div class="dc" data-cat="sizzler" style="display:none" data-r><div class="dci"><img src="https://images.unsplash.com/photo-1601000938259-f6e9e63c3620?w=600&q=80" alt="Momo Sizzler" loading="lazy"/><div class="dcio"></div><span class="dcc cf">🔥 Sizzling</span></div><div class="dcb"><div class="dcn">Roasted Veg Momo Sizzler</div><div class="dcd">Tender momos on a searing cast-iron plate with roasted veggies and sauce.</div><div class="dcf"><span class="dp">₹300</span><a href="https://wa.me/917399999032?text=Roasted Veg Momo Sizzler!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <div class="dc" data-cat="sizzler" style="display:none" data-r data-d="1"><div class="dci"><img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=80" alt="Italian Pasta Sizzler" loading="lazy"/><div class="dcio"></div><span class="dcc cg">Bestseller</span></div><div class="dcb"><div class="dcn">Italian Pasta Sizzler</div><div class="dcd">Al dente pasta in house Italian sauce, steaming on a scorching platter.</div><div class="dcf"><span class="dp">₹320</span><a href="https://wa.me/917399999032?text=Italian Pasta Sizzler!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <div class="dc" data-cat="sizzler" style="display:none" data-r data-d="2"><div class="dci"><img src="https://images.unsplash.com/photo-1630410365059-f2cf1ef59b73?w=600&q=80" alt="Chilli Paneer Sizzler" loading="lazy"/><div class="dcio"></div></div><div class="dcb"><div class="dcn">Chilli Paneer Sizzler</div><div class="dcd">Indo-Chinese chilli paneer on a sizzling iron plate. An experience, not just a meal.</div><div class="dcf"><span class="dp">₹300</span><a href="https://wa.me/917399999032?text=Chilli Paneer Sizzler!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <!-- DRINKS -->
+      <div class="dc" data-cat="drinks" style="display:none" data-r><div class="dci"><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=600&q=80" alt="Oreo Shake" loading="lazy"/><div class="dcio"></div></div><div class="dcb"><div class="dcn">Oreo Shake</div><div class="dcd">Thick, indulgent shake blended with Oreo cookies and premium vanilla.</div><div class="dcf"><span class="dp" style="-webkit-text-fill-color:var(--dim);background:none;font-size:1rem">Ask Price</span><a href="https://wa.me/917399999032?text=Oreo Shake!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <div class="dc" data-cat="drinks" style="display:none" data-r data-d="1"><div class="dci"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80" alt="Cold Coffee" loading="lazy"/><div class="dcio"></div><span class="dcc cg">☕ Favourite</span></div><div class="dcb"><div class="dcn">Cold Coffee</div><div class="dcd">Chilled coffee blended with cream and ice. The perfect pick-me-up.</div><div class="dcf"><span class="dp" style="-webkit-text-fill-color:var(--dim);background:none;font-size:1rem">Ask Price</span><a href="https://wa.me/917399999032?text=Cold Coffee!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <div class="dc" data-cat="drinks" style="display:none" data-r data-d="2"><div class="dci"><img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80" alt="Lemon Ice Tea" loading="lazy"/><div class="dcio"></div></div><div class="dcb"><div class="dcn">Lemon Ice Tea</div><div class="dcd">Refreshing iced tea with a zesty lemon twist. Perfectly chilled, always.</div><div class="dcf"><span class="dp" style="-webkit-text-fill-color:var(--dim);background:none;font-size:1rem">Ask Price</span><a href="https://wa.me/917399999032?text=Lemon Ice Tea!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+      <div class="dc" data-cat="drinks" style="display:none" data-r data-d="3"><div class="dci"><img src="https://images.unsplash.com/photo-1548946526-f69e2424cf45?w=600&q=80" alt="Fruit Beers" loading="lazy"/><div class="dcio"></div><span class="dcc cf">🍹 New</span></div><div class="dcb"><div class="dcn">Fruit Beers</div><div class="dcd">Non-alcoholic sparkling fruit drinks in exciting seasonal flavours.</div><div class="dcf"><span class="dp" style="-webkit-text-fill-color:var(--dim);background:none;font-size:1rem">Ask Price</span><a href="https://wa.me/917399999032?text=Fruit Beer!" target="_blank" class="do">Order →</a></div></div><div class="dhb"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE BANNER -->
+<div class="fbanner">
+  <div class="fbbg"></div>
+  <div class="fbg"></div>
+  <div class="fbc">
+    <div class="ey" data-r>The Pizziano Promise</div>
+    <h2 class="sh2" data-r data-d="1">Premium taste,<br><em>accessible</em> to <strong>everyone</strong></h2>
+    <div class="kpis" data-r data-d="2">
+      <div class="kpi"><div class="kpin">3.8★</div><div class="kpil">Google Rating</div></div>
+      <div class="kpi"><div class="kpin">497+</div><div class="kpil">Happy Reviews</div></div>
+      <div class="kpi"><div class="kpin">₹200</div><div class="kpil">Max Per Head</div></div>
+      <div class="kpi"><div class="kpin">5+</div><div class="kpil">Menu Categories</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section id="gallery" class="sec">
+  <div class="si">
+    <div class="ey" data-r>Food Gallery</div>
+    <h2 class="sh2" data-r data-d="1">Feast Your <em>Eyes</em></h2>
+    <div class="gg" data-r data-d="2">
+      <div class="gi" data-full="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1600&q=85"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=900&q=80" alt=""/><div class="gov"><svg width="26" height="26" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      <div class="gi" data-full="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&q=85"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt=""/><div class="gov"><svg width="26" height="26" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      <div class="gi" data-full="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=1200&q=85"><img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=80" alt=""/><div class="gov"><svg width="26" height="26" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      <div class="gi" data-full="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=1200&q=85"><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=600&q=80" alt=""/><div class="gov"><svg width="26" height="26" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      <div class="gi" data-full="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=1200&q=85"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80" alt=""/><div class="gov"><svg width="26" height="26" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      <div class="gi" data-full="https://images.unsplash.com/photo-1619740455993-9d622d93f64a?w=1200&q=85"><img src="https://images.unsplash.com/photo-1619740455993-9d622d93f64a?w=600&q=80" alt=""/><div class="gov"><svg width="26" height="26" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      <div class="gi" data-full="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=1200&q=85"><img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600&q=80" alt=""/><div class="gov"><svg width="26" height="26" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      <div class="gi" data-full="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=1200&q=85"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&q=80" alt=""/><div class="gov"><svg width="26" height="26" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+    </div>
+  </div>
+</section>
+<div id="lb"><button id="lbc">✕ close</button><img id="lbi" src="" alt=""/></div>
+
+<!-- REVIEWS -->
+<section id="reviews" class="sec">
+  <div class="si">
+    <div class="ey" data-r>Testimonials</div>
+    <h2 class="sh2" style="margin-bottom:60px" data-r data-d="1">What Our <em>Guests</em><br><strong>Are Saying</strong></h2>
+    <div class="rl">
+      <div class="rs" data-r>
+        <div class="rg">3.8</div>
+        <div class="rsr"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star h"></div></div>
+        <div class="rtot">Based on 497 Google reviews</div>
+        <a href="https://wa.me/917399999032" target="_blank" class="bgo" style="font-size:.65rem;padding:13px 26px;display:inline-flex;margin-bottom:30px">Share Your Experience</a>
+        <div class="rbw">
+          <div class="rbr"><span class="rbn">5</span><div class="rbt"><div class="rbf" style="width:38%"></div></div><span class="rbp">38%</span></div>
+          <div class="rbr"><span class="rbn">4</span><div class="rbt"><div class="rbf" style="width:28%"></div></div><span class="rbp">28%</span></div>
+          <div class="rbr"><span class="rbn">3</span><div class="rbt"><div class="rbf" style="width:18%"></div></div><span class="rbp">18%</span></div>
+          <div class="rbr"><span class="rbn">2</span><div class="rbt"><div class="rbf" style="width:10%"></div></div><span class="rbp">10%</span></div>
+          <div class="rbr"><span class="rbn">1</span><div class="rbt"><div class="rbf" style="width:6%"></div></div><span class="rbp">6%</span></div>
+        </div>
+      </div>
+      <div class="rcs" data-r data-d="2">
+        <div class="rc"><div class="rq">The cheese garlic bread is unlike anything I've had in Fatehpur. Came back twice the same week. Genuinely impressive for the price point.</div><div class="rme"><div class="rau"><div class="rav">A</div><div><div class="ran">Aarav Sharma</div><div class="rad">2 weeks ago</div></div></div><div class="rss"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div></div></div>
+        <div class="rc"><div class="rq">The liquid cheese burger completely blew my expectations. Civil Lines finally has a place worth going to on repeat. Incredibly fair pricing.</div><div class="rme"><div class="rau"><div class="rav">P</div><div><div class="ran">Priya Verma</div><div class="rad">1 month ago</div></div></div><div class="rss"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star h"></div></div></div></div>
+        <div class="rc"><div class="rq">Italian Pasta Sizzler is a revelation. The presentation feels premium and the flavour is even better. This place has serious potential — highly recommended.</div><div class="rme"><div class="rau"><div class="rav">R</div><div><div class="ran">Rohit Gupta</div><div class="rad">3 weeks ago</div></div></div><div class="rss"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div></div></div>
+        <div class="rc"><div class="rq">Ordered via WhatsApp and the experience was seamless. Grilled paneer tikka sandwich is my permanent go-to now. Quick, no compromise on taste.</div><div class="rme"><div class="rau"><div class="rav">S</div><div><div class="ran">Sneha Yadav</div><div class="rad">1 week ago</div></div></div><div class="rss"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star h"></div></div></div></div>
+        <div class="rc"><div class="rq">Cold coffee here is genuinely exceptional — thick, perfectly sweetened, served cold. Pizziano has become my weekend ritual. Won't stop coming back.</div><div class="rme"><div class="rau"><div class="rav">M</div><div><div class="ran">Mohit Pandey</div><div class="rad">5 days ago</div></div></div><div class="rss"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section id="order">
+  <div class="obg"></div>
+  <div class="oi">
+    <div class="ey" style="justify-content:center" data-r>Place Your Order</div>
+    <h2 class="oh2" data-r data-d="1">Ready to <em>taste</em><br>the difference?</h2>
+    <p class="osub" data-r data-d="2">Skip the queue — order directly via WhatsApp or call us. Fast, fresh, made just for you.</p>
+    <div class="oduo" data-r data-d="3">
+      <a href="https://wa.me/917399999032?text=Hi Pizziano! I'd like to place an order" target="_blank" class="oc wa"><div class="oico">💬</div><div class="oct">WhatsApp Order</div><div class="ocn">Instant. Easy. Fast.</div><div class="octa">Open Chat →</div></a>
+      <a href="tel:+917399999032" class="oc ph"><div class="oico">📞</div><div class="oct">Call to Order</div><div class="ocn">+91 73999 99032</div><div class="octa">Call Now →</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location" class="sec">
+  <div class="si">
+    <div class="ey" data-r>Find Us</div>
+    <h2 class="sh2" data-r data-d="1">Come Visit <em>Pizziano</em></h2>
+    <div class="locg">
+      <div class="loci" data-r data-d="1">
+        <div class="loit"><div class="loic">📍</div><div><div class="loil">Address</div><div class="loiv">89, Adjoining Rajput Gun House,<br>North Civil Line, Civil Lines,<br>Fatehpur, Uttar Pradesh 212601</div></div></div>
+        <div class="loit"><div class="loic">📞</div><div><div class="loil">Phone / WhatsApp</div><div class="loiv"><a href="tel:+917399999032">+91 73999 99032</a></div></div></div>
+        <div class="loit"><div class="loic">🕐</div><div><div class="loil">Opening Hours</div><div class="loiv">Monday – Sunday<br>10:00 AM – 10:00 PM</div></div></div>
+        <div class="loit"><div class="loic">💰</div><div><div class="loil">Price Range</div><div class="loiv">₹1 – ₹200 per person<br><span style="color:var(--gold)">Affordable luxury for all</span></div></div></div>
+        <a href="https://maps.google.com/?q=Civil+Lines+Fatehpur+Uttar+Pradesh" target="_blank" class="bgo" style="margin-top:14px;font-size:.65rem;padding:14px 28px;display:inline-flex;width:fit-content">Get Directions →</a>
+      </div>
+      <div class="mapc" data-r data-d="2">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14392.5!2d80.8088!3d25.9262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399b0d9e3d5d5!2sCivil+Lines%2C+Fatehpur%2C+Uttar+Pradesh+212601!5e0!3m2!1sen!2sin!4v1699000000000" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Pizziano Location"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fg">
+    <div>
+      <div class="fbn">Pizzia<em>no</em></div>
+      <div class="frule"></div>
+      <p class="fdesc">Fatehpur's most celebrated premium café. Crafting unforgettable bites since 2024.</p>
+      <div class="fsocs">
+        <a href="#" class="fs" aria-label="Instagram">📸</a>
+        <a href="https://wa.me/917399999032" target="_blank" class="fs" aria-label="WhatsApp">💬</a>
+        <a href="#" class="fs" aria-label="Facebook">👍</a>
+        <a href="tel:+917399999032" class="fs" aria-label="Call">📞</a>
+      </div>
+    </div>
+    <div class="fc"><h4>Explore</h4><ul><li><a href="#about">Our Story</a></li><li><a href="#menu">The Menu</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#order">Order Now</a></li></ul></div>
+    <div class="fc"><h4>Menu</h4><ul><li><a href="#menu">Garlic Breads</a></li><li><a href="#menu">Burgers</a></li><li><a href="#menu">Sandwiches</a></li><li><a href="#menu">Sizzlers</a></li><li><a href="#menu">Drinks</a></li></ul></div>
+    <div class="fc"><h4>Contact</h4><ul><li><a href="tel:+917399999032">+91 73999 99032</a></li><li><a href="https://wa.me/917399999032" target="_blank">WhatsApp Order</a></li><li><a href="#">Civil Lines, Fatehpur</a></li><li><a href="#">UP — 212601</a></li><li><a href="#">10AM – 10PM Daily</a></li></ul></div>
+  </div>
+  <div class="fb">
+    <span>© 2025 Pizziano. All rights reserved.</span>
+    <span class="fbi">Try a bite of delight.</span>
+    <span>Made with ♥ in Fatehpur</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/917399999032?text=Hi! I'd like to order from Pizziano" target="_blank" class="fwa" title="Order on WhatsApp">💬</a>
+<button id="btt" onclick="scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<script>
+// LOADER
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('out'),2000)});
+
+// CURSOR
+const cd=document.getElementById('cd'),cr=document.getElementById('cr');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.left=mx+'px';cd.style.top=my+'px'});
+(function raf(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(raf)})();
+document.querySelectorAll('a,button,.dc,.gi').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cr.classList.add('h'));
+  el.addEventListener('mouseleave',()=>cr.classList.remove('h'));
+});
+
+// NAV
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('pinned',scrollY>40);
+  document.getElementById('btt').classList.toggle('show',scrollY>500);
+},{passive:true});
+
+// BURGER
+const hb=document.getElementById('nhb'),mob=document.getElementById('mob');
+hb.addEventListener('click',()=>{hb.classList.toggle('x');mob.classList.toggle('open')});
+document.querySelectorAll('.dd').forEach(a=>a.addEventListener('click',()=>{hb.classList.remove('x');mob.classList.remove('open')}));
+
+// MENU TABS
+const tbs=document.querySelectorAll('.tb'),cards=document.querySelectorAll('.dc');
+tbs.forEach(btn=>btn.addEventListener('click',()=>{
+  tbs.forEach(b=>b.classList.remove('on'));btn.classList.add('on');
+  const cat=btn.dataset.cat;
+  cards.forEach(c=>{
+    const show=c.dataset.cat===cat;
+    c.style.display=show?'':'none';
+    if(show){c.removeAttribute('style');setTimeout(()=>{c.classList.remove('on');requestAnimationFrame(()=>c.classList.add('on'))},30);}
+  });
+}));
+
+// SCROLL REVEAL
+const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:0.1});
+document.querySelectorAll('[data-r]').forEach(el=>ro.observe(el));
+
+// LIGHTBOX
+const lb=document.getElementById('lb'),lbi=document.getElementById('lbi');
+document.querySelectorAll('.gi').forEach(g=>{
+  g.addEventListener('click',()=>{lbi.src=g.dataset.full;lb.classList.add('open');document.body.style.overflow='hidden'});
+});
+function clb(){lb.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('lbc').addEventListener('click',clb);
+lb.addEventListener('click',e=>{if(e.target===lb)clb()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')clb()});
+
+// PARALLAX
+const hbg=document.querySelector('.hbg');
+let t=false;
+window.addEventListener('scroll',()=>{
+  if(!t){requestAnimationFrame(()=>{if(scrollY<window.innerHeight&&hbg)hbg.style.transform=`translateY(${scrollY*.28}px)`;t=false});t=true}
+},{passive:true});
+</script>
+</body>
+</html>
